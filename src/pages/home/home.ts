@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
-import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransferObject } from '@ionic-native/file-transfer';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +12,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private file: File,
-    private fileTransfer: FileTransfer,
+    // private fileTransfer: FileTransfer,
     private fileTransferObj: FileTransferObject
   ) {
 
@@ -58,7 +58,7 @@ export class HomePage {
   download() {
     let that: this = this;
     const url = 'https://github.com/Aton5859/ionic3_steps/blob/master/src/index.html';
-    this.fileTransferObj.download(url, this.file.dataDirectory + 'githubIndex.html')
+    that.fileTransferObj.download(url, that.file.dataDirectory + 'githubIndex.html')
       .then((entry) => {
         alert('download complete: ' + entry.toURL());
       }, (error) => {
@@ -93,5 +93,9 @@ export class HomePage {
     } catch (error) {
       alert(error);
     }
+  }
+
+  downloadZip() {
+
   }
 }
