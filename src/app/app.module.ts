@@ -1,4 +1,3 @@
-import { ComponentsModule } from './../components/components.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -24,8 +23,7 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    ComponentsModule
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
