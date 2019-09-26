@@ -2,7 +2,7 @@ import { Zip } from '@ionic-native/zip';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
-import { FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +16,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private file: File,
-    /* private fileTransfer: FileTransfer, */
+    private fileTransfer: FileTransfer,
     private fileTransferObj: FileTransferObject,
     private zip: Zip,
     // private platform: Platform
@@ -91,18 +91,19 @@ export class HomePage {
   download() {
     let that: this = this;
     const url = 'https://github.com/Aton5859/ionic3_steps/blob/master/src/index.html';
-    that.fileTransferObj.download(url, that.file.dataDirectory + 'githubIndex.html')
+    const fileTransfer: FileTransferObject = that.fileTransfer.create();
+    fileTransfer.download(url, that.file.dataDirectory + 'githubIndex.html')
       .then((entry) => {
-        alert('download complete: ' + entry.toURL());
+        alert('下载完成' + '\n' + 'download complete: ' + entry.toURL());
       }, (error) => {
         alert("Error:" + error);
       });
-    that.fileTransferObj.onProgress = function (progressEvent: any) {
+    fileTransfer.onProgress(progressEvent => {
       if (progressEvent.lengthComputable) {
         console.log(progressEvent.loaded / progressEvent.total);
       } else {
       }
-    };
+    });
   }
 
   readDownladData() {
@@ -153,19 +154,19 @@ export class HomePage {
     let that: this = this;// https://github.com/Aton5859/ionic3_steps/blob/master/www.zip?raw=true
     /* const url = 'https://github.com/Aton5859/ionic3_steps/raw/master/www.zip'; */
     const url = 'https://github.com/Aton5859/ionic3_steps/raw/master/www.zip';
-    that.fileTransferObj.download(url, that.file.dataDirectory + 'www.zip', true)
+    const fileTransferObj: FileTransferObject = that.fileTransfer.create();
+    fileTransferObj.download(url, that.file.dataDirectory + 'www.zip', true)
       .then((entry) => {
         alert('download complete: ' + entry.toURL());
         that.url = entry.toURL();
       }, (error) => {
         alert("Error:" + error);
-      });
-    that.fileTransferObj.onProgress = function (progressEvent: any) {
-      if (progressEvent.lengthComputable) {
-        console.log(progressEvent.loaded / progressEvent.total);
-      } else {
+      })
+    fileTransferObj.onProgress(progress => {
+      if (progress.lengthComputable) {
+        console.log(progress.loaded / progress.total);
       }
-    };
+    });
   }
 
   createDir() {
