@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { File } from '@ionic-native/file';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { Zip } from '@ionic-native/zip';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     File,
     FileTransfer,
-    FileTransferObject
+    FileTransferObject,
+    Zip
   ]
 })
 export class AppModule { }
