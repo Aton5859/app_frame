@@ -1,8 +1,9 @@
 import { Zip } from '@ionic-native/zip';
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer';
+/* import { RoundProgressEase } from 'angular-svg-round-progressbar'; */
 
 @Component({
   selector: 'page-home',
@@ -13,20 +14,46 @@ export class HomePage {
   /* public progressbarPercent: string = '0%';
   public progress = 0; */
 
+  // 圆形进度条相关
+  /* current: number = 27;
+  max: number = 50;
+  stroke: number = 15;
+  radius: number = 125;
+  semicircle: boolean = false;
+  rounded: boolean = false;
+  responsive: boolean = false;
+  clockwise: boolean = true;
+  color: string = '#45ccce';
+  background: string = '#eaeaea';
+  duration: number = 80;
+  animation: string = 'easeOutCubic';
+  animationDelay: number = 0;
+  animations: string[] = [];
+  gradient: boolean = false;
+  realCurrent: number = 0; */
+
   constructor(
     public navCtrl: NavController,
     private file: File,
     private fileTransfer: FileTransfer,
-    private fileTransferObj: FileTransferObject,
     private zip: Zip,
+    /* ease: RoundProgressEase,
+    private zone: NgZone */
     // private platform: Platform
   ) {
+    /* 平台read后执行调用 */
     /* this.platform.ready().then((readySource) => {
-      this.zip.unzip(this.file.dataDirectory + "www.zip", this.file.dataDirectory, (progress) => console.log('Unzipping, ' + Math.round((progress.loaded / progress.total) * 100) + '%'))
-        .then((result) => {
-          if (result === 0) console.log('SUCCESS');
-          if (result === -1) console.log('FAILED');
-        });
+    }); */
+
+    /*  圆形进度显示 */
+    /* for (let prop in ease) {
+      if (prop.toLowerCase().indexOf('ease') > -1) {
+        this.animations.push(prop);
+      };
+    }; */
+    /* this.zone.run(() => {
+      this.current;
+      this.max;
     }); */
   }
 
@@ -164,6 +191,9 @@ export class HomePage {
       })
     fileTransferObj.onProgress(progress => {
       if (progress.lengthComputable) {
+        /*  圆形进度显示 */
+        /* that.max = Number(progress.total.toString());
+        that.current = Number(progress.loaded.toString()); */
         console.log(progress.loaded / progress.total);
       }
     });
@@ -231,4 +261,24 @@ export class HomePage {
       alert(error);
     }
   }
+
+  /*  圆形进度显示 */
+  /* increment(amount = 1) {
+    this.current += amount;
+  }
+
+  getOverlayStyle() {
+    let isSemi = this.semicircle;
+    let transform = (isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
+
+    return {
+      'top': isSemi ? 'auto' : '50%',
+      'bottom': isSemi ? '5%' : 'auto',
+      'left': '50%',
+      'transform': transform,
+      '-moz-transform': transform,
+      '-webkit-transform': transform,
+      'font-size': this.radius / 3.5 + 'px'
+    };
+  } */
 }

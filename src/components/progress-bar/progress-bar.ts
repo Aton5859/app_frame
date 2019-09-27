@@ -15,8 +15,8 @@ export class ProgressBarComponent implements OnInit, OnChanges {
   constructor() {
     this.length = {
       'width': '0%',
-      'transition': 'width 1s',
-      '-webkit-transition': 'width 1s'
+      'transition': 'width 0.01s',
+      '-webkit-transition': 'width 0.01s'
     }
   }
 
@@ -36,7 +36,7 @@ export class ProgressBarComponent implements OnInit, OnChanges {
     }
     setTimeout(() => {
       this.length.width = this.proportion;
-    }, 200);//设置延迟，让动画动起来
+    }, 20);//设置延迟，让动画动起来
   }
 
   /**

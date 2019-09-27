@@ -14,6 +14,9 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { Zip } from '@ionic-native/zip';
 
+// 圆形进度条
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +27,8 @@ import { Zip } from '@ionic-native/zip';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    RoundProgressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

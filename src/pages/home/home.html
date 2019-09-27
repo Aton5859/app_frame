@@ -20,4 +20,19 @@
   <button ion-button full (click)="turnToUnzipPage()">turn to unzip page</button>
   <button ion-button full (click)="clearDownloadZip()">clear download Zip</button>
 
+  <!-- 圆形进度显示
+    达不到实时显示进度的效果，变量值改变但实际页面未刷新
+    1、emit
+    2、zone强制刷新
+    3、深拷贝 -->
+  <!-- <div class="container">
+    <div class="progress-wrapper">
+      <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+      <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle"
+        [rounded]="rounded" [responsive]="responsive" [clockwise]="clockwise" [background]="background"
+        [duration]="duration" [animation]="animation" [animationDelay]="animationDelay"></round-progress>
+    </div>
+  </div> -->
+
+  <!-- <input id="current" name="current" type="number" [(ngModel)]="current"> -->
 </ion-content>
