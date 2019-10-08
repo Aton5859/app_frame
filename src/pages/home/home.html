@@ -5,20 +5,32 @@
 </ion-header>
 
 <ion-content padding>
+  <h5>固定html写入本地文件并跳转</h5>
   <button ion-button full (click)="write()">write content</button>
   <button ion-button full (click)="read()">read content</button>
   <button ion-button full (click)="turn()">turn to local page</button>
   <button ion-button full (click)="clear()">clear local page</button>
   <button ion-button full (click)="download()">download data</button>
+
+  <h5>获取html写入本地文件并跳转</h5>
   <button ion-button full (click)="readDownladData()">read download data</button>
   <button ion-button full (click)="turnToDownloadPage()">turn to download page</button>
   <button ion-button full (click)="clearDownloadPage()">clear download page</button>
+
+  <h5>获取步骤条zip文件写入本地文件解压并跳转</h5>
   <button ion-button full (click)="createDir()">create dir</button>
   <button ion-button full (click)="downloadZip()">download Zip</button>
   <button ion-button full (click)="unZip()">unzip Zip</button>
   <button ion-button full (click)="checkDir()">check unzip folder</button>
   <button ion-button full (click)="turnToUnzipPage()">turn to unzip page</button>
   <button ion-button full (click)="clearDownloadZip()">clear download Zip</button>
+
+  <h5>获取条码zip文件写入本地文件解压并跳转</h5>
+  <button ion-button full (click)="createStockAppDir()">create dir</button>
+  <button ion-button full (click)="downStockAppZip()">download Zip</button>
+  <button ion-button full (click)="unZipStockAppZip()">unzip Zip</button>
+  <button ion-button full (click)="turnToStockAppPage()">turn to unzip page</button>
+  <button ion-button full (click)="clearDownloadStockAppZip()">clear download Zip</button>
 
   <!-- 圆形进度显示
     达不到实时显示进度的效果，变量值改变但实际页面未刷新
