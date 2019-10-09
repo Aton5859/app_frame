@@ -344,6 +344,66 @@ export class HomePage {
   }
   //#endregion
 
+  //#region 验证在壳中是否能读取到应用内文件
+  checkStockManagementDir() {
+    try {
+      let that: this = this;
+      that.file.checkFile(that.file.dataDirectory, "serviceAddress.json")
+        .then(function (result) {
+          alert("result:" + result);
+        }, function (error) {
+          alert("error:" + error);
+        })
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  readStockManagementDir() {
+    try {
+      let that: this = this;
+      that.file.readAsText(that.file.dataDirectory, "serviceAddress.json")
+        .then(function (result) {
+          alert("result:" + result);
+        }, function (error) {
+          alert("error:" + error);
+        })
+    } catch (error) {
+      alert(error);
+    }
+  }
+  //#endregion
+
+  //#region 尝试写入哪个路径可以应用共享并不会被移动端管家清理掉
+  writeSharedDirectoryFile() {
+    try {
+      let that: this = this;
+      that.file.writeFile(that.file.sharedDirectory, "testShareFile.txt", "123456")
+        .then(function (result) {
+          alert("result:" + result);
+        }, function (error) {
+          alert("error:" + error);
+        })
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  readSharedDirectoryFile() {
+    try {
+      let that: this = this;
+      that.file.readAsText(that.file.sharedDirectory, "testShareFile.txt")
+        .then(function (result) {
+          alert("result:" + result);
+        }, function (error) {
+          alert("error:" + error);
+        })
+    } catch (error) {
+      alert(error);
+    }
+  }
+  //#endregion
+
   /*  圆形进度显示 */
   /* increment(amount = 1) {
     this.current += amount;
