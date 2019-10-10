@@ -381,8 +381,9 @@ export class HomePage {
   turnToBaiDu() {
     try {
       let that: this = this;
-      // that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
       that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
+      // 跳转至第三方网站。例：百度
+      // that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl("https://www.baidu.com/");
       console.log(that.frameSrc);
     } catch (error) {
       alert(error);
