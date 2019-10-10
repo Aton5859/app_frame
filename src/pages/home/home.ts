@@ -1,9 +1,10 @@
 import { Zip } from '@ionic-native/zip';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ModalIframeSmComponent } from '../../components/modal-iframe-sm/modal-iframe-sm';
 /* import { RoundProgressEase } from 'angular-svg-round-progressbar'; */
 
 @Component({
@@ -40,7 +41,8 @@ export class HomePage {
     private file: File,
     private fileTransfer: FileTransfer,
     private zip: Zip,
-    public domSanitizer: DomSanitizer
+    public domSanitizer: DomSanitizer,
+    private modalCtrl: ModalController,
     /* ease: RoundProgressEase,
     private zone: NgZone */
     // private platform: Platform
@@ -395,7 +397,20 @@ export class HomePage {
   }
   //#endregion
 
+  //#region 打开modal显示iframe跳转第三方页面
+  openModalIframeSM() {
+    try {
+      let that: this = this;
+      let modalChooseCompanyName = that.modalCtrl.create(ModalIframeSmComponent);
+      modalChooseCompanyName.onDidDismiss(data => {
 
+      })
+      modalChooseCompanyName.present();
+    } catch (error) {
+      alert(error);
+    }
+  }
+  //#endregion
 
   /*  圆形进度显示 */
   /* increment(amount = 1) {

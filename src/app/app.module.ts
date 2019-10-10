@@ -16,6 +16,8 @@ import { Zip } from '@ionic-native/zip';
 
 // 圆形进度条
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
+// Iframe modal
+import { ModalIframeSmComponent } from '../components/modal-iframe-sm/modal-iframe-sm';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ModalIframeSmComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ModalIframeSmComponent
   ],
   providers: [
     StatusBar,
