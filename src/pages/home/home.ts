@@ -13,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class HomePage {
   url: any;
   frameSrc: any;
+  showIframe: boolean;
   /* public progressbarPercent: string = '0%';
   public progress = 0; */
 
@@ -44,7 +45,7 @@ export class HomePage {
     private zone: NgZone */
     // private platform: Platform
   ) {
-    this.turnToBaiDu();
+    this.showIframe = false;
     /* 平台read后执行调用 */
     /* this.platform.ready().then((readySource) => {
     }); */
@@ -378,17 +379,23 @@ export class HomePage {
   }
   //#endregion
 
+  //#region 打开iframe并跳转第三方网站\本地地址
   turnToBaiDu() {
     try {
       let that: this = this;
-      that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
+      that.showIframe = true;
+      // 跳转至本地路径。
+      // that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
       // 跳转至第三方网站。例：百度
-      // that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl("https://www.baidu.com/");
+      that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl("https://www.baidu.com/");
       console.log(that.frameSrc);
     } catch (error) {
       alert(error);
     }
   }
+  //#endregion
+
+
 
   /*  圆形进度显示 */
   /* increment(amount = 1) {

@@ -39,9 +39,12 @@
   <h5>通过iframe跳转第三方页面</h5>
   <button ion-button full (click)="turnToBaiDu()">turn To BaiDu</button>
 
-  <iframe sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"
+  <iframe *ngIf="showIframe"
+    sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"
     data-tap-disabled="true" [src]="frameSrc">
   </iframe>
+
+
 
   <!-- 圆形进度显示
     达不到实时显示进度的效果，变量值改变但实际页面未刷新
