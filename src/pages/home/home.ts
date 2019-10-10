@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer';
+import { DomSanitizer } from '@angular/platform-browser';
 /* import { RoundProgressEase } from 'angular-svg-round-progressbar'; */
 
 @Component({
@@ -11,6 +12,7 @@ import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer';
 })
 export class HomePage {
   url: any;
+  frameSrc: any;
   /* public progressbarPercent: string = '0%';
   public progress = 0; */
 
@@ -37,10 +39,12 @@ export class HomePage {
     private file: File,
     private fileTransfer: FileTransfer,
     private zip: Zip,
+    public domSanitizer: DomSanitizer
     /* ease: RoundProgressEase,
     private zone: NgZone */
     // private platform: Platform
   ) {
+    this.turnToBaiDu();
     /* 平台read后执行调用 */
     /* this.platform.ready().then((readySource) => {
     }); */
@@ -344,7 +348,7 @@ export class HomePage {
   }
   //#endregion
 
-  //#region 验证在壳中是否能读取到应用内文件
+  //#region 验证在壳中是否能读取到应用内文件    --应用内写入的文件，路径也是壳根路径，并非应用路径。
   checkStockManagementDir() {
     try {
       let that: this = this;
@@ -374,35 +378,16 @@ export class HomePage {
   }
   //#endregion
 
-  //#region 尝试写入哪个路径可以应用共享并不会被移动端管家清理掉
-  writeSharedDirectoryFile() {
+  turnToBaiDu() {
     try {
       let that: this = this;
-      that.file.writeFile(that.file.sharedDirectory, "testShareFile.txt", "123456")
-        .then(function (result) {
-          alert("result:" + result);
-        }, function (error) {
-          alert("error:" + error);
-        })
+      // that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
+      that.frameSrc = that.domSanitizer.bypassSecurityTrustResourceUrl(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
+      console.log(that.frameSrc);
     } catch (error) {
       alert(error);
     }
   }
-
-  readSharedDirectoryFile() {
-    try {
-      let that: this = this;
-      that.file.readAsText(that.file.sharedDirectory, "testShareFile.txt")
-        .then(function (result) {
-          alert("result:" + result);
-        }, function (error) {
-          alert("error:" + error);
-        })
-    } catch (error) {
-      alert(error);
-    }
-  }
-  //#endregion
 
   /*  圆形进度显示 */
   /* increment(amount = 1) {

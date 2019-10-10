@@ -36,9 +36,20 @@
   <button ion-button full (click)="checkStockManagementDir()">check StockManagement dir</button>
   <button ion-button full (click)="readStockManagementDir()">read StockManagement dir</button>
 
-  <h5>写入共享文件夹并读取</h5>
-  <button ion-button full round (click)="writeSharedDirectoryFile()">write shared directory file</button>
-  <button ion-button full round (click)="readSharedDirectoryFile()">read shared directory file</button>
+  <h5>通过iframe跳转第三方页面</h5>
+  <button ion-button full (click)="turnToBaiDu()">turn To BaiDu</button>
+
+  <!--  <ion-modal>
+    <ion-header>
+      <ion-navbar>
+        <ion-title>Login</ion-title>
+      </ion-navbar>
+    </ion-header>
+    <ion-content scroll="true" class="has-header no-padding"> -->
+  <iframe sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"
+    data-tap-disabled="true" [src]="frameSrc"></iframe>
+  <!--     </ion-content>
+  </ion-modal> -->
 
   <!-- 圆形进度显示
     达不到实时显示进度的效果，变量值改变但实际页面未刷新
