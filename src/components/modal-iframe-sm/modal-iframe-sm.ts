@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { File } from '@ionic-native/file';
 
 /**
  * Generated class for the ModalIframeSmComponent component.
@@ -17,8 +18,9 @@ export class ModalIframeSmComponent {
 
   constructor(
     public domSanitizer: DomSanitizer,
+    private file: File
   ) {
-    this.frameSrc = this.domSanitizer.bypassSecurityTrustResourceUrl("https://www.baidu.com/");
+    // this.frameSrc = this.domSanitizer.bypassSecurityTrustResourceUrl("https://www.baidu.com/");
+    this.frameSrc = this.domSanitizer.bypassSecurityTrustResourceUrl(this.file.dataDirectory + 'StockManagement/assets/www/index.html');
   }
-
 }

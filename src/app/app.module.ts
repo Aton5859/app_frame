@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { File } from '@ionic-native/file';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { Zip } from '@ionic-native/zip';
+import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 
 // 圆形进度条
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
@@ -49,7 +50,8 @@ import { ModalIframeSmComponent } from '../components/modal-iframe-sm/modal-ifra
     File,
     FileTransfer,
     FileTransferObject,
-    Zip
+    Zip,
+    BarcodeScanner
   ]
 })
 export class AppModule { }
