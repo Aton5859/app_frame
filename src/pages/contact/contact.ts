@@ -22,12 +22,12 @@ export class ContactPage {
   }
 
   //#region 获取条码zip文件写入本地文件解压并跳转
-  downStockAppZip() {
+  downStepsAppZip() {
     try {
       let that: this = this;
       const url = 'https://github.com/Aton5859/app_frame/raw/master/steps.zip';
       const fileTransferObj: FileTransferObject = that.fileTransfer.create();
-      fileTransferObj.download(url, that.file.dataDirectory + 'StockManagement.zip', true)
+      fileTransferObj.download(url, that.file.dataDirectory + 'Steps.zip', true)
         .then((entry) => {
           alert('download complete: ' + entry.toURL());
           that.url = entry.toURL();
@@ -47,10 +47,10 @@ export class ContactPage {
     }
   }
 
-  createStockAppDir() {
+  createStepsAppDir() {
     try {
       let that: this = this;
-      that.file.createDir(that.file.dataDirectory, "StockManagement", true)
+      that.file.createDir(that.file.dataDirectory, "Steps", true)
         .then((result) => {
           alert(result);
         })
@@ -59,10 +59,10 @@ export class ContactPage {
     }
   }
 
-  unZipStockAppZip() {
+  unZipStepsAppZip() {
     try {
       let that: this = this;
-      that.zip.unzip(that.url, that.file.dataDirectory + "StockManagement/", (progress) => console.log('Unzipping, ' + Math.round((progress.loaded / progress.total) * 100) + '%'))
+      that.zip.unzip(that.url, that.file.dataDirectory + "Steps/", (progress) => console.log('Unzipping, ' + Math.round((progress.loaded / progress.total) * 100) + '%'))
         .then((result) => {
           /*  if (result === 0) console.log('SUCCESS');
            if (result === -1) console.log('FAILED'); */
@@ -73,19 +73,19 @@ export class ContactPage {
     }
   }
 
-  turnToStockAppPage() {
+  turnToStepsAppPage() {
     try {
       let that: this = this;
-      window.location.href = that.file.dataDirectory + 'StockManagement/assets/www/index.html';
+      window.location.href = that.file.dataDirectory + 'Steps/assets/www/index.html';
     } catch (error) {
       alert(error);
     }
   }
 
-  clearDownloadStockAppZip() {
+  clearDownloadStepsAppZip() {
     try {
       let that: this = this;
-      that.file.removeFile(that.file.dataDirectory, "StockManagement.zip")
+      that.file.removeFile(that.file.dataDirectory, "Steps.zip")
         .then(function (result) {
           alert("result:" + result);
         }, function (error) {
