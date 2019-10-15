@@ -25,7 +25,7 @@ export class ContactPage {
   downStockAppZip() {
     try {
       let that: this = this;
-      const url = 'https://github.com/Aton5859/app_frame/raw/master/StockManagement.zip';
+      const url = 'https://github.com/Aton5859/app_frame/raw/master/steps.zip';
       const fileTransferObj: FileTransferObject = that.fileTransfer.create();
       fileTransferObj.download(url, that.file.dataDirectory + 'StockManagement.zip', true)
         .then((entry) => {
