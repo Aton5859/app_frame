@@ -14,6 +14,7 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { Zip } from '@ionic-native/zip';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
+import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
 
 // 圆形进度条
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
@@ -51,7 +52,8 @@ import { ModalIframeSmComponent } from '../components/modal-iframe-sm/modal-ifra
     FileTransfer,
     FileTransferObject,
     Zip,
-    BarcodeScanner
+    BarcodeScanner,
+    InAppBrowser
   ]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import { File } from '@ionic-native/file';
 import { FileTransferObject, FileTransfer } from '@ionic-native/file-transfer';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ModalIframeSmComponent } from '../../components/modal-iframe-sm/modal-iframe-sm';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 /* import { RoundProgressEase } from 'angular-svg-round-progressbar'; */
 
 @Component({
@@ -43,6 +44,7 @@ export class HomePage {
     private zip: Zip,
     public domSanitizer: DomSanitizer,
     private modalCtrl: ModalController,
+    private inAppBrowser: InAppBrowser
     /* ease: RoundProgressEase,
     private zone: NgZone */
     // private platform: Platform
@@ -254,7 +256,8 @@ export class HomePage {
   turnToUnzipPage() {
     try {
       let that: this = this;
-      window.location.href = that.file.dataDirectory + 'Steps/assets/www/index.html';
+      that.inAppBrowser.create(that.file.dataDirectory + 'Steps/assets/www/index.html');
+      /* window.location.href = that.file.dataDirectory + 'Steps/assets/www/index.html'; */
     } catch (error) {
       alert(error);
     }
@@ -330,7 +333,8 @@ export class HomePage {
   turnToStockAppPage() {
     try {
       let that: this = this;
-      window.location.href = that.file.dataDirectory + 'StockManagement/assets/www/index.html';
+      that.inAppBrowser.create(that.file.dataDirectory + 'StockManagement/assets/www/index.html');
+      /* window.location.href = that.file.dataDirectory + 'StockManagement/assets/www/index.html'; */
     } catch (error) {
       alert(error);
     }
