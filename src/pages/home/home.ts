@@ -192,9 +192,9 @@ export class HomePage {
   downloadZip() {
     let that: this = this;// https://github.com/Aton5859/ionic3_steps/blob/master/www.zip?raw=true
     /* const url = 'https://github.com/Aton5859/ionic3_steps/raw/master/www.zip'; */
-    const url = 'https://github.com/Aton5859/ionic3_steps/raw/master/www.zip';
+    const url = 'https://github.com/Aton5859/app_frame/raw/master/steps.zip';
     const fileTransferObj: FileTransferObject = that.fileTransfer.create();
-    fileTransferObj.download(url, that.file.dataDirectory + 'www.zip', true)
+    fileTransferObj.download(url, that.file.dataDirectory + 'Steps.zip', true)
       .then((entry) => {
         alert('download complete: ' + entry.toURL());
         that.url = entry.toURL();
@@ -254,7 +254,7 @@ export class HomePage {
   turnToUnzipPage() {
     try {
       let that: this = this;
-      window.location.href = that.file.dataDirectory + 'Steps/www/index.html';
+      window.location.href = that.file.dataDirectory + 'Steps/assets/www/index.html';
     } catch (error) {
       alert(error);
     }
@@ -263,7 +263,7 @@ export class HomePage {
   clearDownloadZip() {
     try {
       let that: this = this;
-      that.file.removeFile(that.file.dataDirectory, "www.zip")
+      that.file.removeFile(that.file.dataDirectory, "Steps.zip")
         .then(function (result) {
           alert("result:" + result);
         }, function (error) {
