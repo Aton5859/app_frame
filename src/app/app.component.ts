@@ -27,8 +27,10 @@ export class MyApp {
   }
 
   registerBackButtonAction() {
+    let counts = 0;
     this.platform.registerBackButtonAction(() => {
-      return;
+      console.log(counts);
+      counts++;
     })
   }
 }
