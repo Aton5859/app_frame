@@ -416,6 +416,17 @@ export class HomePage {
   }
   //#endregion
 
+  //#region 写入session storage
+  writeSessionStorage() {
+    try {
+      let that: this = this;
+      window.sessionStorage.testSession = "123456789";
+    } catch (error) {
+      alert(error);
+    }
+  }
+  //#endregion
+
   /*  圆形进度显示 */
   /* increment(amount = 1) {
     this.current += amount;
