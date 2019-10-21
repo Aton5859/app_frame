@@ -416,7 +416,7 @@ export class HomePage {
   }
   //#endregion
 
-  //#region 写入session storage
+  //#region 写入session storage   结论：session storage 可共用
   writeSessionStorage() {
     try {
       let that: this = this;
