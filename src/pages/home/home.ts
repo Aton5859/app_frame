@@ -66,6 +66,26 @@ export class HomePage {
     }); */
   }
 
+  // 页面渲染所需时间
+  /* ionViewCanEnter() {
+    try {
+      let time = new Date();
+      console.log(time.getSeconds());
+      console.log(time.getTime());
+    } catch (error) {
+      alert(error);
+    }
+  }
+  ionViewDidEnter() {
+    try {
+      let time = new Date();
+      console.log(time.getSeconds());
+      console.log(time.getTime());
+    } catch (error) {
+      alert(error);
+    }
+  } */
+
   //#region 固定html写入本地文件并跳转
   write() {
     try {
@@ -419,7 +439,6 @@ export class HomePage {
   //#region 写入session storage   结论：session storage 可共用
   writeSessionStorage() {
     try {
-      let that: this = this;
       window.sessionStorage.testSession = "123456789";
     } catch (error) {
       alert(error);

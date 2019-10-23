@@ -17,12 +17,22 @@ export class MyApp {
     splashScreen: SplashScreen,
     public keyboard: Keyboard
   ) {
+    console.log("before ready");
+    console.log(new Date().getTime(), "before ready");
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
       this.registerBackButtonAction();
+      console.log(new Date().getTime(), "ready");
+      // 应用程序最小化和重新唤起事件
+      /* platform.pause.subscribe(() => {
+        console.log("app pause");
+      });
+      platform.resume.subscribe(() => {
+        console.log("app resume");
+      }); */
     });
   }
 
