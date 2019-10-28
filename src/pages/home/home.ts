@@ -1,3 +1,4 @@
+import { LoadingServices } from './../../services/loadingservices';
 import { Zip } from '@ionic-native/zip';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
@@ -44,7 +45,8 @@ export class HomePage {
     private zip: Zip,
     public domSanitizer: DomSanitizer,
     private modalCtrl: ModalController,
-    private inAppBrowser: InAppBrowser
+    private inAppBrowser: InAppBrowser,
+    private loadingSer: LoadingServices
     /* ease: RoundProgressEase,
     private zone: NgZone */
     // private platform: Platform
@@ -465,4 +467,19 @@ export class HomePage {
       'font-size': this.radius / 3.5 + 'px'
     };
   } */
+
+  //#region 显示自定义loading组件
+
+  showLoadingCtrl() {
+    try {
+      let that: this = this;
+      let loading = that.loadingSer.presentLoading("正在请稍候...");
+      loading.present();
+      setTimeout(() => {
+        loading.dismiss();
+      }, 10000)
+    } catch (error) {
+      alert(error);
+    }
+  }
 }

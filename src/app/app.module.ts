@@ -1,3 +1,4 @@
+import { LoadingServices } from './../services/loadingservices';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -53,7 +54,8 @@ import { ModalIframeSmComponent } from '../components/modal-iframe-sm/modal-ifra
     FileTransferObject,
     Zip,
     BarcodeScanner,
-    InAppBrowser
+    InAppBrowser,
+    LoadingServices
   ]
 })
 export class AppModule { }

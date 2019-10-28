@@ -29,6 +29,62 @@
     }
   </script>-->
 
+
+
+
+  <ion-loading role="dialog" id="iniLoading" class="loading-md" style="z-index: 9999;">
+    <ion-backdrop disable-activated="" role="presentation" tappable="" class="backdrop-no-tappable"
+      style="opacity: 0.5;"></ion-backdrop>
+    <div class="loading-wrapper" style="opacity: 1; transform: scale(1);">
+      <!--bindings={
+    "ng-reflect-ng-if": "true"
+  }-->
+      <div class="loading-spinner">
+        <ion-spinner class="spinner spinner-md spinner-bubbles spinner-md-bubbles" ng-reflect-name="bubbles">
+          <!--bindings={
+    "ng-reflect-ng-for-of": "[object Object],[object Object"
+  }--><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: 0px; left: 9px; animation-delay: -1000ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: 5.78509px; left: 6.8944px; animation-delay: -888.889ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: 8.86327px; left: 1.56283px; animation-delay: -777.778ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: 7.79423px; left: -4.5px; animation-delay: -666.667ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: 3.07818px; left: -8.45723px; animation-delay: -555.556ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: -3.07818px; left: -8.45723px; animation-delay: -444.444ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: -7.79423px; left: -4.5px; animation-delay: -333.333ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: -8.86327px; left: 1.56283px; animation-delay: -222.222ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg><svg viewBox="0 0 64 64" ng-reflect-ng-style="[object Object]"
+            style="top: -5.78509px; left: 6.8944px; animation-delay: -111.111ms; animation-duration: 1000ms;">
+            <circle transform="translate(32,32)" r="5"></circle>
+          </svg>
+          <!--bindings={
+    "ng-reflect-ng-for-of": ""
+  }-->
+        </ion-spinner>
+      </div>
+      <!--bindings={
+    "ng-reflect-ng-if": "正在请稍候..."
+  }-->
+      <div class="loading-content">正在请稍候...</div>
+    </div>
+  </ion-loading>
+
+
+
   <link href="build/main.css" rel="stylesheet">
   <script>
     console.log(new Date().getTime(), "index");
@@ -42,7 +98,7 @@
 
   </script>
 
-  <style>
+  <!-- <style>
     .spinner {
       margin: 100px auto;
       width: 50px;
@@ -109,7 +165,7 @@
       }
     }
 
-  </style>
+  </style> -->
 </head>
 
 <body>
@@ -117,13 +173,13 @@
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
 
-  <div class="spinner" id="iniLoading">
+  <!-- <div class="spinner">
     <div class="rect1"></div>
     <div class="rect2"></div>
     <div class="rect3"></div>
     <div class="rect4"></div>
     <div class="rect5"></div>
-  </div>
+  </div> -->
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
